@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Items from './Items';
 
 class ItemsContainer extends Component {
-    render() { 
+    render() {
         return (
             <Items />
         );
