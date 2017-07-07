@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import AppBarExampleIcon from './HeaderBar';
+
 
 import './styles.css';
 
 const Layout = ({ children }) => (
     <div className="appContentWrapper">
         <div className="appHeader">
-            {/* Might want to put your header bar here... */}
+            <AppBarExampleIcon />
         </div>
         <div className="appContent">
             {children}
         </div>
-        {/* And a footer here, but not on the login route... */}
+        {<h1>© 2017 Boomtown Corp. All Rights Reserved</h1>}
     </div>
 );
 
