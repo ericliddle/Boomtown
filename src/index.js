@@ -18,7 +18,6 @@ injectTapEventPlugin();
 
 const Boomtown = () => (
     <MuiThemeProvider muiTheme={muiTheme}>
-        
         <Layout>
         <Items />
         </Layout>
