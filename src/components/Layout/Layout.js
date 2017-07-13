@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AppBarExampleIcon from './HeaderBar';
+import HeaderCard from '../HeaderCard';
 
 
 import './styles.css';
 
 const Layout = ({ children }) => (
     <div className="appContentWrapper">
-        <div className="appHeader">
-            <AppBarExampleIcon />
+        <div className="andthisshittoo" >
+            <HeaderCard className="fuckthisshit" />
         </div>
         <div className="appContent">
             {children}
