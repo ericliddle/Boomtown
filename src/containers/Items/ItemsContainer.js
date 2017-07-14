@@ -1,51 +1,54 @@
 import React, { Component } from 'react';
+import { getItemsAndUsers } from '../../redux/actions';
+import { connect } from 'react-redux';
 
 
 import Loader from '../../components/Loader';
 import Items from './Items';
 
 class ItemsContainer extends Component {
-    constructor() {
-        super();
+    // constructor() {
+    //     super();
 
-        this.state = {
-            loading: true,
-            itemsData: [],
-        };
-    }
+    //     this.state = {
+    //         loading: true,
+    //         itemsData: [],
+    //     };
+    // }
 
     componentDidMount() {
-        Promise.all(['http://localhost:3001/items', 'http://localhost:3001/users'].map(url => (
-            fetch(url).then(response => response.json())
-        ))).then(json => {
-            const [items, users] = json;
-            const itemsWithOwners = items.map(item => {
-                const itemOwner = users.filter(user => user.id === item.itemOwner);
-                item.itemOwner = itemOwner[0];
-                return item;
-            });
+        this.props.dispatch(getItemsAndUsers(
 
-            this.setState({
-                itemsData: itemsWithOwners,
-                loading: false
-            });
-        }).catch(error => console.log(error));
+        ));
 
-        // fetch('http://localhost:3001/items')
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         this.setState({
-        //             itemsData: data,
-        //             loading: false
-        //         });
-        //     })
-        //     .catch(error => console.log(error));
+        // Promise.all(['http://localhost:3001/items', 'http://localhost:3001/users'].map(url => (
+        //     fetch(url).then(response => response.json())
+        // ))).then(json => {
+        //     const [items, users] = json;
+        //     const itemsWithOwners = items.map(item => {
+        //         const itemOwner = users.filter(user => user.id === item.itemOwner);
+        //         item.itemOwner = itemOwner[0];
+        //         return item;
+        // });
+
+        // this.setState({
+        //     itemsData: itemsWithOwners,
+        //     loading: false
+        // });
+        //     }).catch(error => console.log(error));
     }
 
     render() {
-        if (this.state.loading) return <Loader />;
-        return <Items itemsData={this.state.itemsData} />;
+        if (this.props.loading) return <Loader />;
+        return <Items itemsData={this.props.itemsData} />;
     }
 }
 
-export default ItemsContainer;
+function mapStateToProps(state) {
+    return {
+        loading: state.items.loading,
+        itemsData: state.items.itemsData
+    };
+}
+
+export default connect(mapStateToProps)(ItemsContainer);
