@@ -51,4 +51,5 @@ function mapStateToProps(state) {
     };
 }
 
+//PROP TYPE VALIDATION
 export default connect(mapStateToProps)(ItemsContainer);

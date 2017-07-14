@@ -1,9 +1,12 @@
-export const GET_ITEMS_AND_USERS = 'GET_ITEMS_AND_USERS';
-export const RENDER_ITEM_CARDS = 'RENDER_ITEM_CARDS';
+// Action constants
 
-export function renderTheCards(itemsWithOwners) {
+export const LOADS_ITEMS_LIST = 'LOADS_ITEMS_LIST';
+
+// Action Creators
+
+export function loadItemsList(itemsWithOwners) {
     return {
-        type: RENDER_ITEM_CARDS,
+        type: LOADS_ITEMS_LIST,
         payload: itemsWithOwners
     };
 }
@@ -19,7 +22,7 @@ export function getItemsAndUsers() {
                 item.itemOwner = itemOwner[0];
                 return item;
             });
-            dispatch(renderTheCards(itemsWithOwners));
+            dispatch(loadItemsList(itemsWithOwners));
         });
     };
 }

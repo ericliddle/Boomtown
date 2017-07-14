@@ -5,8 +5,6 @@ import thunk from 'redux-thunk';
 
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { CardRenderReducer } from './reducer';
-// import {listTransform, explainList} from './middleware';
-
 
 export default createStore(
     combineReducers({

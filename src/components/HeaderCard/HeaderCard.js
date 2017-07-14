@@ -15,8 +15,22 @@ const style = {
     margin: 12,
 };
 
+const names = [
+    'Oliver Hansen',
+    'Van Henry',
+    'April Tucker',
+    'Ralph Hubbard',
+    'Omar Alexander',
+    'Carlos Abbott',
+    'Miriam Wagner',
+    'Bradley Wilkerson',
+    'Virginia Andrews',
+    'Kelly Snyder',
+];
+
 
 const HeaderCard = () => (
+    
     <AppBar
         showMenuIconButton={false}
         title={
@@ -25,7 +39,8 @@ const HeaderCard = () => (
                     <img className="AppbarLogo" src={logo} alt="Boombtown Logo" />
 
                     <SelectField
-                        floatingLabelText="Ready?"
+                        multiple={true}
+                        hintText="Filter by Tag"
                     >
                         <MenuItem value={null} primaryText="" />
                         <MenuItem value={false} primaryText="No" />

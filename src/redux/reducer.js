@@ -1,5 +1,5 @@
 import {
-    RENDER_ITEM_CARDS
+    LOADS_ITEMS_LIST
 } from './actions';
 
 const initialState = {
@@ -9,9 +9,8 @@ const initialState = {
 
 export function CardRenderReducer(state = initialState, action) {
     switch (action.type) {
-    case RENDER_ITEM_CARDS:
-        const cardRenderState = { loading: false, itemsData: action.payload };
-        return cardRenderState;
+    case LOADS_ITEMS_LIST:
+        return { loading: false, itemsData: action.payload };
     default:
         return state;
     }
