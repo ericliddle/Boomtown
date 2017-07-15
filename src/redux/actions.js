@@ -1,28 +1,32 @@
-// Action constants
+//Imported to items.js redux/modules
 
-export const LOADS_ITEMS_LIST = 'LOADS_ITEMS_LIST';
 
-// Action Creators
+// // Action constants
 
-export function loadItemsList(itemsWithOwners) {
-    return {
-        type: LOADS_ITEMS_LIST,
-        payload: itemsWithOwners
-    };
-}
+// export const LOADS_ITEMS_LIST = 'LOADS_ITEMS_LIST';
 
-export function getItemsAndUsers() {
-    return function (dispatch) {
-        Promise.all(['http://localhost:3001/items', 'http://localhost:3001/users'].map(url => (
-            fetch(url).then(response => response.json())
-        ))).then(json => {
-            const [items, users] = json;
-            const itemsWithOwners = items.map(item => {
-                const itemOwner = users.filter(user => user.id === item.itemOwner);
-                item.itemOwner = itemOwner[0];
-                return item;
-            });
-            dispatch(loadItemsList(itemsWithOwners));
-        });
-    };
-}
+// // Action Creators
+
+// export function loadItemsList(itemsWithOwners) {
+//     return {
+//         type: LOADS_ITEMS_LIST,
+//         payload: itemsWithOwners
+//     };
+// }
+
+
+// export function getItemsAndUsers() {
+//     return function (dispatch) {
+//         Promise.all(['http://localhost:3001/items', 'http://localhost:3001/users'].map(url => (
+//             fetch(url).then(response => response.json())
+//         ))).then(json => {
+//             const [items, users] = json;
+//             const itemsWithOwners = items.map(item => {
+//                 const itemOwner = users.filter(user => user.id === item.itemOwner);
+//                 item.itemOwner = itemOwner[0];
+//                 return item;
+//             });
+//             dispatch(loadItemsList(itemsWithOwners));
+//         });
+//     };
+// }

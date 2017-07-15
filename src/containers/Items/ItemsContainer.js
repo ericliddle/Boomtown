@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getItemsAndUsers } from '../../redux/actions';
+import { getItemsAndUsers } from '../../redux/modules/items';
 import { connect } from 'react-redux';
 
 
