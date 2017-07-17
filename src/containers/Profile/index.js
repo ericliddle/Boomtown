@@ -1,5 +1,5 @@
 import ProfileContainer from './ProfileContainer';
-import Profile from './Profile';
+// import Profile from './Profile';
 
-export { Profile };
+// export { Profile };
 export default ProfileContainer;

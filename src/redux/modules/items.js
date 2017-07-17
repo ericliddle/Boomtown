@@ -1,4 +1,6 @@
 export const LOADS_ITEMS_LIST = 'LOADS_ITEMS_LIST';
+export const LOAD_FILTER_ITEMS = 'LOAD_FILTER_ITEMS';
+
 
 const initialState = {
     loading: true,
@@ -15,7 +17,10 @@ export function loadItemsList(itemsWithOwners) {
 export function CardRenderReducer(state = initialState, action) {
     switch (action.type) {
     case LOADS_ITEMS_LIST:
-        return { loading: false, itemsData: action.payload };
+        return {
+            loading: false,
+            itemsData: action.payload
+        };
     default:
         return state;
     }

@@ -1,11 +1,12 @@
 import React from 'react';
 
-import './style.css';
 
 import AppBar from 'material-ui/AppBar';
-import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
-import SelectField from 'material-ui/SelectField';
+import FilterList from '../FilterList';
+
+
+import './style.css';
 
 
 // Delete what you don't need
@@ -21,21 +22,10 @@ const HeaderCard = () => (
         showMenuIconButton={false}
         title={
             <div className="AppbarLeft">
-                <img className="AppbarLogo" src={logo} alt="Boombtown Logo" />
-
-                <SelectField
-                    className="selectFieldMenu"
-                    multiple={true}
-                    hintText="Filter by Tag"
-                >
-                    <MenuItem value={true} primaryText="Electronics" />
-                    <MenuItem value={true} primaryText="Household Items" />
-                    <MenuItem value={true} primaryText="Musical Instruments" />
-                    <MenuItem value={true} primaryText="Physical Media" />
-                    <MenuItem value={true} primaryText="Recreational Media" />
-                    <MenuItem value={true} primaryText="Sporting Goods" />
-                    <MenuItem value={true} primaryText="Tools" />
-                </SelectField>
+                <a href="/">
+                    <img className="AppbarLogo" src={logo} alt="Boombtown Logo" />
+                </a>
+                <FilterList />
             </div>
         }
     >

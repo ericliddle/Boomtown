@@ -1,0 +1,21 @@
+.profile-card {
+    height: 14rem;
+    width: 800px !important;
+    /* padding: 2rem; */
+    margin: 0 auto;
+    margin-top: 2rem;    
+    width: 100%;
+}
+
+.profile {
+    padding: 1rem;
+    display: flex !important;
+}
+
+.name4 {
+    padding: 0;
+}
+
+.profile-right {
+    display: flex;
+}

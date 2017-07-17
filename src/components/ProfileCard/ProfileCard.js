@@ -1,32 +1,29 @@
 import React from 'react';
 
-import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
-import moment from 'moment';
-
-const ProfileCard = ({ itemDetails }) => (
-
-//     <li className="itemCardWrapper">
-//         <Card>
-//             <CardMedia overlay={<CardTitle title="" subtitle="" />} >
-//                 <img src={itemDetails.imageUrl} alt="" />
-//             </CardMedia>
-//             <CardHeader
-//                 title={itemDetails.itemOwner.fullName}
-//                 subtitle={moment.unix(itemDetails.createdOn).fromNow()}
-//                 avatar=""
-//             />
-//             <CardTitle title={itemDetails.title} subtitle={itemDetails.tags} />
-//             <CardText>
-//                 {itemDetails.description}
-//             </CardText>
-//             <CardActions>
-//                 <FlatButton label="Borrow" />
-//             </CardActions>
-//         </Card>
-//     </li>
-// );
+import { Card, CardText } from 'material-ui/Card';
+import Gravatar from 'react-gravatar';
+import './style.css';
 
 
+const ProfileCard = ({ profileData }) => (
+
+    <Card className="profile-card" >
+        <CardText className="profile">
+            <div className="profile-left">
+                <h2>{profileData.userdata.fullName}</h2>
+                <p>{profileData.userdata.bio}</p>
+            </div>
+            <div className="profile-right">
+                <p>Shared Items</p>
+                <p>Borrowed Items</p>
+                <Gravatar
+                    className="name5"
+                    email={profileData.userdata.email}
+                    style={{ borderRadius: 90, height: 180, width: 180 }}
+                />
+            </div>
+        </CardText>
+    </Card >
+);
 
 export default ProfileCard;

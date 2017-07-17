@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import Loader from '../../components/Loader';
 import NotFound from './NotFound';
 
 class NotFoundContainer extends Component {
