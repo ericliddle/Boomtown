@@ -1,9 +1,12 @@
 import React from 'react';
 
+import NoLogo from './NotFound';
 import './style.css';
 
 const NotFound = () => (
-    <h1>All the NotFound</h1>
+    <div className="NoLogo">
+        <img src={NoLogo} alt="Not Found" />
+    </div>
 );
 
 export default NotFound;

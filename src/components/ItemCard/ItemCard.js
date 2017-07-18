@@ -7,21 +7,8 @@ import Gravatar from 'react-gravatar';
 import moment from 'moment';
 
 const ItemCard = ({ itemDetails }) => {
-
-    const getTags = (tagList) => {
-        let tagsList = '';
-
-        for (let i = 0; i < tagList.length; i += 1) {
-            tagsList += tagList[i];
-            if (i < tagList.length - 1) tagsList += ', ';
-        }
-        return tagsList;
-    };
-
     return (
-
         <li className="itemCardWrapper">
-
             <Card>
                 <Link to={`/profile/${itemDetails.itemOwner.id}`}>
                     <CardMedia overlay={<CardTitle title="" subtitle="" />} >
@@ -32,12 +19,13 @@ const ItemCard = ({ itemDetails }) => {
                         subtitle={moment.unix(itemDetails.createdOn).fromNow()}
                         avatar={<Gravatar
                             email={itemDetails.itemOwner.email}
-                            style={{ borderRadius: 50 }} />}
+                            style={{ borderRadius: 50 }}
+                        />}
                     />
                 </Link>
                 <CardTitle
                     title={itemDetails.title}
-                    subtitle={getTags(itemDetails.tags)}
+                    subtitle={itemDetails.tags.join(', ')}
                 />
                 <CardText>
                     {itemDetails.description}

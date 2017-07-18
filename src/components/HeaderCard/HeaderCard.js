@@ -1,9 +1,10 @@
 import React from 'react';
 
-
+import { updateItemsFilter } from '../../redux/modules/items';
+import { connect } from 'react-redux';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
-import FilterList from '../FilterList';
+import FilterList from '../../containers/FilterList';
 
 
 import './style.css';
@@ -16,7 +17,7 @@ const style = {
     margin: 12,
 };
 
-const HeaderCard = () => (
+const HeaderCard = ({ itemFilters }) => (
 
     <AppBar
         showMenuIconButton={false}
@@ -25,7 +26,10 @@ const HeaderCard = () => (
                 <a href="/">
                     <img className="AppbarLogo" src={logo} alt="Boombtown Logo" />
                 </a>
-                <FilterList />
+                <FilterList
+                    selectValues={itemFilters}
+                    onChangeAction={updateItemsFilter}
+                />
             </div>
         }
     >
@@ -36,4 +40,8 @@ const HeaderCard = () => (
     </AppBar >
 );
 
-export default HeaderCard;
+const mapStateFromProps = (state) => ({
+    itemFilters: state.items.itemFilters
+});
+
+export default connect(mapStateFromProps)(HeaderCard);

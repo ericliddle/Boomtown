@@ -1,10 +1,11 @@
 export const LOADS_ITEMS_LIST = 'LOADS_ITEMS_LIST';
-export const LOAD_FILTER_ITEMS = 'LOAD_FILTER_ITEMS';
+const LOAD_FILTER_ITEMS = 'LOAD_FILTER_ITEMS';
 
 
 const initialState = {
     loading: true,
     itemsData: [],
+    itemFilters: []
 };
 
 export function loadItemsList(itemsWithOwners) {
@@ -14,15 +15,27 @@ export function loadItemsList(itemsWithOwners) {
     };
 }
 
+export function updateItemsFilter(filters) {
+    return {
+        type: LOAD_FILTER_ITEMS,
+        payload: filters
+    };
+}
+
 export function CardRenderReducer(state = initialState, action) {
     switch (action.type) {
-    case LOADS_ITEMS_LIST:
-        return {
-            loading: false,
-            itemsData: action.payload
-        };
-    default:
-        return state;
+        case LOADS_ITEMS_LIST:
+            return {
+                ...state,
+                loading: false,
+                itemsData: action.payload
+            };
+        case LOAD_FILTER_ITEMS:
+            return {
+                ...state, itemFilters: action.payload
+            };
+        default:
+            return state;
     }
 }
 
@@ -41,5 +54,3 @@ export function getItemsAndUsers() {
         });
     };
 }
-
-//TODO Add filter in here
