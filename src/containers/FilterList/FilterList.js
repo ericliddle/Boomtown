@@ -9,7 +9,7 @@ const FilterList = ({ selectValues, dispatch, onChangeAction }) => {
         'Household Items',
         'Musical Instruments',
         'Physical Media',
-        'Recreational Media',
+        'Recreational Equipment',
         'Sporting Goods',
         'Tools',
     ];
