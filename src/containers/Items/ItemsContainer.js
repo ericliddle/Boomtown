@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { getItemsAndUsers } from '../../redux/modules/items';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 import { connect } from 'react-redux';
+
+// import { getItemsAndUsers } from '../../redux/modules/items';
 
 
 import Loader from '../../components/Loader';
@@ -8,14 +11,13 @@ import Items from './Items';
 
 class ItemsContainer extends Component {
 
-    componentDidMount() {
-        this.props.dispatch(getItemsAndUsers(
-        ));
-    }
+    // componentDidMount() {
+    //     this.props.dispatch(getItemsAndUsers(
+    //     ));
+    // }
 
-    filterItemsByTags() {
+    filterItemsByTags(itemsData) {
         const itemFilters = this.props.itemFilters;
-        const itemsData = this.props.itemsData;
         if (itemFilters.length) {
             return itemsData.filter(item => item.tags.find(
                 tag => itemFilters.includes(tag)));
@@ -24,18 +26,44 @@ class ItemsContainer extends Component {
     }
 
     render() {
-        if (this.props.loading) return <Loader />;
-        const filteredItemsData = this.filterItemsByTags();
+        const { data: {loading, items }} = this.props;
+        // const itemsData = this.props.data.items;
+        if (loading) return <Loader />;
+        const filteredItemsData = this.filterItemsByTags(items);
         return <Items itemsData={filteredItemsData} />;
     }
 }
 
+const fetchItems = gql`
+    query fetchItems {
+        items{
+            id
+            title
+            description
+            imageUrl
+            tags
+            itemOwner{
+                id
+                email
+                fullName
+                bio
+            }
+            createdOn
+            available
+            borrower {
+                id
+            }
+        }
+    }
+`;
+
 function mapStateToProps(state) {
     return {
-        loading: state.items.loading,
-        itemsData: state.items.itemsData,
+        // loading: state.items.loading,
+        // itemsData: state.items.itemsData,
         itemFilters: state.items.itemFilters
     };
 }
 
-export default connect(mapStateToProps)(ItemsContainer);
+const ItemsContainerWithData = graphql(fetchItems)(ItemsContainer);
+export default connect(mapStateToProps)(ItemsContainerWithData);
