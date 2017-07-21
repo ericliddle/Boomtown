@@ -9,7 +9,7 @@ class LoginContainer extends Component {
     };
 
     login = () => {
-        console.log('You clicked the login button.');
+        console.log('You clicked the login button.'); // TODO remove console.log when login button is complete
     }
 
     render() {
