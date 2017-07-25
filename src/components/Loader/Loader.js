@@ -1,7 +1,7 @@
 import React from 'react';
 import CircularProgress from 'material-ui/CircularProgress';
 
-import theme from '../../config/theme.js';
+import theme from '../../config/theme';
 import './style.css';
 
 const Loader = () => (

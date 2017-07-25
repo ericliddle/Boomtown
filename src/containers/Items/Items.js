@@ -8,3 +8,4 @@ const Items = ({ itemsData }) => (
 );
 
 export default Items;
+ 

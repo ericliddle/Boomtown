@@ -274,6 +274,45 @@
       "createdOn": 1497044400,
       "available": true,
       "borrower": null
+    },
+    {
+      "title": "Lawnmower",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/boomtown-dfdd8.appspot.com/o/demo-images%2Flawnmower.jpg?alt=media",
+      "itemOwner": "LAi9TYWxgGhbjgHu1Sm6ZvB1tRP2",
+      "description": "Working-condition lawnmower will fulfill all of your grass-cutting needs.",
+      "tags": [
+        "Household Items"
+      ],
+      "createdOn": 1500673127,
+      "available": true,
+      "borrower": null,
+      "id": 22
+    },
+    {
+      "title": "Kat's Face",
+      "imageUrl": "https://scontent-sea1-1.xx.fbcdn.net/v/t31.0-8/19466703_10155551993612334_337521259147875710_o.jpg?oh=54fcc9f20e2d5009309e3d46166600ad&oe=5A055325",
+      "itemOwner": "LAi9TYWxgGhbjgHu1Sm6ZvB1tRP2",
+      "description": "Working-condition lawnmower will fulfill all of your grass-cutting needs.",
+      "tags": [
+        "Household Items"
+      ],
+      "createdOn": 1500673558,
+      "available": true,
+      "borrower": null,
+      "id": 23
+    },
+    {
+      "title": "Kevin Kevin",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/boomtown-dfdd8.appspot.com/o/demo-images%2Flawnmower.jpg?alt=media",
+      "itemOwner": "LAi9TYWxgGhbjgHu1Sm6ZvB1tRP2",
+      "description": "Working-condition lawnmower will fulfill all of your grass-cutting needs.",
+      "tags": [
+        "Household Items"
+      ],
+      "createdOn": 1500674274,
+      "available": true,
+      "borrower": null,
+      "id": 24
     }
   ],
   "users": [
