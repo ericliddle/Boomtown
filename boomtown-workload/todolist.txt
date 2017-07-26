@@ -2,3 +2,24 @@ New Actions:
 
 - Create Login error
 - Add/remove user profiles
+
+Change the login method in LoginContainer to a thunk, and dispatch it by importing the action creator.
+
+Login form and a route that might be called signup.
+
+Singup form is container similar to login.
+
+Tonight: Build a form so we can use a join.  Write a mutation and tie the postgres system together with th firebase system.
+- Sign up form:
+    - id
+    - bio
+    - email
+    - fullname
+    (keep fullname until we refactoe the name to first and last name as below)
+        - firstname
+        - lastname
+        (all reuired! fields schema.js in boomtown server)
+
+Move login render method to login button with onSubmit. with an anonymous function
+
+Figure out anonymous functions, callbacks.  This shit is getting confusing.

@@ -11,21 +11,20 @@ class LoginContainer extends Component {
     static propTypes = {
     };
 
-    login = ({ email, password }) => {
+        login = ({ email, password }) => {
 
-        FirebaseAuth.signInWithEmailAndPassword(email, password)
-            .catch((err) => {
-                if (err.code === 'auth/user-not-found') {
-                    // USER DOES NOT EXIST
-                } else {
-                    // SHOW LOGIN ERROR
-                }
-            });
-    }
+            FirebaseAuth.signInWithEmailAndPassword(email, password)
+                .catch((err) => {
+                    if (err.code === 'auth/user-not-found') {
+                        // USER DOES NOT EXIST
+                    } else {
+                        // SHOW LOGIN ERROR
+                    }
+                });
+        }
 
     render() {
-
-        this.login({ email: 'michaeljackson@gmail.com', password: 'password1234' });
+        // this.login({ email: 'michaeljackson@gmail.com', password: 'password1234' });
 
         if (this.props.authenticated) {
             return (
@@ -34,10 +33,15 @@ class LoginContainer extends Component {
         }
 
         return (
-            <Login login={this.login} />
+            <Login
+                login={(e) => {
+                    e.preventDefault();
+                    this.login({ email: 'michaeljackson@gmail.com', password: 'password1234' });
+                }}
+            />
         );
     }
-}
+} console.log("i was clicked")
 
 const mapStateToProps = state => ({
     authenticated: state.auth.userProfile
