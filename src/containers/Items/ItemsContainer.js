@@ -3,18 +3,10 @@ import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import { connect } from 'react-redux';
 
-// import { getItemsAndUsers } from '../../redux/modules/items';
-
-
 import Loader from '../../components/Loader';
 import Items from './Items';
 
 class ItemsContainer extends Component {
-
-    // componentDidMount() {
-    //     this.props.dispatch(getItemsAndUsers(
-    //     ));
-    // }
 
     filterItemsByTags(itemsData) {
         const itemFilters = this.props.itemFilters;
@@ -27,7 +19,6 @@ class ItemsContainer extends Component {
 
     render() {
         const { data: {loading, items }} = this.props;
-        // const itemsData = this.props.data.items;
         if (loading) return <Loader />;
         const filteredItemsData = this.filterItemsByTags(items);
         return <Items itemsData={filteredItemsData} />;
@@ -45,7 +36,7 @@ const fetchItems = gql`
             itemOwner{
                 id
                 email
-                fullName
+                fullname
                 bio
             }
             createdOn

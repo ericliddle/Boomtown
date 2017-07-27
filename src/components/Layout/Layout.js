@@ -7,8 +7,8 @@ import './styles.css';
 
 const Layout = ({ children }) => (
     <div className="appContentWrapper">
-        <div className="andthisshittoo" >
-            <HeaderCard className="fuckthisshit" />
+        <div className="headerCardWarpper" >
+            <HeaderCard className="headerCardClass" />
         </div>
         <div className="appContent">
             {children}

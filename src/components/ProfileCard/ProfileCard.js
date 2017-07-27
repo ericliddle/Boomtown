@@ -10,7 +10,7 @@ const ProfileCard = ({ profileData }) => (
     <Card className="profile-card" >
         <CardText className="profile">
             <div className="profile-left">
-                <h2>{profileData.fullName}</h2>
+                <h2>{profileData.fullname}</h2>
                 <p>{profileData.bio}</p>
             </div>
             <div className="profile-right">

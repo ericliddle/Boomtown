@@ -23,13 +23,11 @@ import { updateAuthState } from './redux/modules/auth';
 const Boomtown = () => (
     <MuiThemeProvider muiTheme={muiTheme}>
         <ApolloProvider client={client} store={store}>
-            {/* <Provider store={store}>  TODO: deleteStore */}
             <Layout>
                 <Router>
                     <Routes />
                 </Router>
             </Layout>
-            {/* </Provider> */}
         </ApolloProvider>
     </MuiThemeProvider>
 

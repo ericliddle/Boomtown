@@ -34,7 +34,7 @@ const HeaderCard = ({ itemFilters }) => (
         }
     >
         <div>
-            <RaisedButton label="Profile" primary={true} style={style} />
+            <RaisedButton label="My Profile" primary={true} style={style} />
             <RaisedButton label="Logout" secondary={true} style={style} />
         </div>
     </AppBar >

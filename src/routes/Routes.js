@@ -9,6 +9,7 @@ import Items from '../containers/Items';
 import Profile from '../containers/Profile';
 import Share from '../containers/Shared';
 import NotFound from '../containers/NotFound';
+import Register from '../containers/Register';
 
 
 const Routes = () => (
@@ -17,7 +18,8 @@ const Routes = () => (
         <Route exact path="/" component={Items} />
         <Route path="/profile/:id" component={Profile} />
         <Route path="/share" component={Share} />
-        <Route path="/notfound" componen={NotFound} />
+        <Route path="/notfound" component={NotFound} />
+        <Route path="/register" component={Register} />
     </Switch>
 );
 

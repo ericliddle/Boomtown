@@ -7,6 +7,8 @@ import Loader from '../../components/Loader';
 import ProfileCard from '../../components/ProfileCard';
 import Items from '../Items/Items';
 
+import './styles.css';
+
 class ProfileContainer extends Component {
 
     componentDidMount() {
@@ -17,7 +19,7 @@ class ProfileContainer extends Component {
     render() {
         if (this.props.loading) return <Loader />;
         return (
-            <div>
+            <div className="profileContainer">
                 <ProfileCard profileData={this.props.profileData} />
                 <Items itemsData={this.props.specificUserItems} />
             </div>
