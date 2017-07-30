@@ -42,22 +42,22 @@ export function CardRenderReducer(state = initialState, action) {
     }
 }
 
-export function getItemsAndUsers(userId) {
-    return function (dispatch) {
-        Promise.all(['http://localhost:3001/items', 'http://localhost:3001/users'].map(url => (
-            fetch(url).then(response => response.json())
-        ))).then(json => {
-            const [items, users] = json;
-            const itemsWithOwners = items.map(item => {
-                const itemOwner = users.filter(user => user.id === item.itemOwner);
-                item.itemOwner = itemOwner[0];
-                return item;
-            });
-            let specificUserItems = [];
-            if (userId) {
-                specificUserItems = itemsWithOwners.filter(item => item.itemOwner.id === userId);
-            }
-            dispatch(loadItemsList(itemsWithOwners, specificUserItems));
-        });
-    };
-}
+// export function getItemsAndUsers(userId) {
+//     return function (dispatch) {
+//         Promise.all(['http://localhost:3001/items', 'http://localhost:3001/users'].map(url => (
+//             fetch(url).then(response => response.json())
+//         ))).then(json => {
+//             const [items, users] = json;
+//             const itemsWithOwners = items.map(item => {
+//                 const itemowner = users.filter(user => user.id === item.itemowner);
+//                 item.itemowner = itemowner[0];
+//                 return item;
+//             });
+//             let specificUserItems = [];
+//             if (userId) {
+//                 specificUserItems = itemsWithOwners.filter(item => item.itemowner.id === userId);
+//             }
+//             dispatch(loadItemsList(itemsWithOwners, specificUserItems));
+//         });
+//     };
+// }

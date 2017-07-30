@@ -10,23 +10,21 @@ const ItemCard = ({ itemDetails }) => {
     return (
         <li className="itemCardWrapper">
             <Card>
-                <Link to={`/profile/${itemDetails.itemOwner.id}`}>
+                <Link to={`/profile/${itemDetails.itemowner.id}`}>
                     <CardMedia overlay={<CardTitle title="" subtitle="" />} >
-                        <img src={itemDetails.imageUrl} alt="" />
+                        <img src={itemDetails.imageurl} alt="" />
                     </CardMedia>
                     <CardHeader
-                        title={itemDetails.itemOwner.fullname}
-                        subtitle={moment.unix(itemDetails.createdOn).fromNow()}
+                        title={itemDetails.itemowner.fullname}
+                        subtitle={moment.unix(itemDetails.created).fromNow()}
                         avatar={<Gravatar
-                            email={itemDetails.itemOwner.email}
+                            email={itemDetails.itemowner.email}
                             style={{ borderRadius: 50 }}
                         />}
                     />
                 </Link>
-                <CardTitle
-                    title={itemDetails.title}
-                    subtitle={itemDetails.tags.join(', ')}
-                />
+                <CardTitle title={itemDetails.title} subtitle={(itemDetails.tags.map(tag => tag.title).join(', '))} />
+
                 <CardText>
                     {itemDetails.description}
                 </CardText>

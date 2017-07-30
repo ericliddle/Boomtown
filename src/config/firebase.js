@@ -1,7 +1,6 @@
 import * as firebase from 'firebase';
 import 'firebase/auth';
 
-//Still need to initialize firebase.  TODO: check docs.
 const config = {
     apiKey: "AIzaSyCVaOF2yca8gQQBH214C4NfPMmg6rrN940",
     authDomain: "boomtown-27f3a.firebaseapp.com",
@@ -13,12 +12,12 @@ const config = {
 
 const FirebaseApp = firebase.initializeApp(config);
 const FirebaseAuth = FirebaseApp.auth();
+const FirebaseStorage = firebase.storage(FirebaseApp);
 const FirebaseDB = firebase.database();
-// const FirebaseStorage = firebase.storage(FirebaseApp);
 
 export {
     FirebaseApp,
     FirebaseAuth,
     FirebaseDB,
-    // FirebaseStorage, TODO: check back on dis.
+    FirebaseStorage
 };

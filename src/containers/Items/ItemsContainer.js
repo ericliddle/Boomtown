@@ -18,7 +18,7 @@ class ItemsContainer extends Component {
     }
 
     render() {
-        const { data: {loading, items }} = this.props;
+        const { data: { loading, items } } = this.props;
         if (loading) return <Loader />;
         const filteredItemsData = this.filterItemsByTags(items);
         return <Items itemsData={filteredItemsData} />;
@@ -31,21 +31,19 @@ const fetchItems = gql`
             id
             title
             description
-            imageUrl
-            tags
-            itemOwner{
+            imageurl
+            tags{
+                id
+                title
+            }
+            itemowner{
                 id
                 email
                 fullname
                 bio
             }
-            createdOn
-            available
-            borrower {
-                id
-            }
         }
-    }
+        }
 `;
 
 function mapStateToProps(state) {

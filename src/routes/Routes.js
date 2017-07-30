@@ -4,6 +4,7 @@ import {
     Route
 } from 'react-router-dom';
 
+import PrivateRoute from '../components/PrivateRoute/PrivateRoute';
 import Login from '../containers/Login';
 import Items from '../containers/Items';
 import Profile from '../containers/Profile';
@@ -15,11 +16,11 @@ import Register from '../containers/Register';
 const Routes = () => (
     <Switch>
         <Route path="/login" component={Login} />
-        <Route exact path="/" component={Items} />
-        <Route path="/profile/:id" component={Profile} />
-        <Route path="/share" component={Share} />
-        <Route path="/notfound" component={NotFound} />
-        <Route path="/register" component={Register} />
+        <PrivateRoute exact path="/" component={Items} />
+        <PrivateRoute path="/profile/:id" component={Profile} />
+        <PrivateRoute path="/share" component={Share} />
+        <PrivateRoute path="/notfound" component={NotFound} />
+        <PrivateRoute path="/register" component={Register} />
     </Switch>
 );
 

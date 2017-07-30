@@ -1,10 +1,5 @@
 export const LOADS_USER_PROFILE = 'LOADS_USER_PROFILE';
 
-const initialState = {
-    loading: true,
-    profileData: {},
-};
-
 export function loadUserProfile(profileItems) {
     return {
         type: LOADS_USER_PROFILE,
@@ -12,10 +7,19 @@ export function loadUserProfile(profileItems) {
     };
 }
 
+const initialState = {
+    loading: true,
+    profileData: {},
+};
+
+
 export function ProfileCardReducer(state = initialState, action) {
     switch (action.type) {
         case LOADS_USER_PROFILE:
-            return { loading: false, profileData: action.payload };
+            return {
+                loading: false,
+                profileData: action.payload
+            };
         default:
             return state;
     }

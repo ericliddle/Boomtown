@@ -13,7 +13,9 @@ const Layout = ({ children }) => (
         <div className="appContent">
             {children}
         </div>
-        {<h1>© 2017 Boomtown Corp. All Rights Reserved</h1>}
+        <span className="copyright">
+            {<h1>© 2017 Boomtown Corp. All Rights Reserved</h1>}
+        </span>
     </div>
 );
 
