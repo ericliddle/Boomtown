@@ -6,7 +6,6 @@ export function loadUserProfile(profileItems) {
         payload: profileItems
     };
 }
-
 const initialState = {
     loading: true,
     profileData: {},

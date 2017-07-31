@@ -11,7 +11,7 @@ class ItemsContainer extends Component {
     filterItemsByTags(itemsData) {
         const itemFilters = this.props.itemFilters;
         if (itemFilters.length) {
-            return itemsData.filter(item => item.tags.find(
+            return itemsData.filter(item => item.tags.map(tag => tag.title).find(
                 tag => itemFilters.includes(tag)));
         }
         return itemsData;

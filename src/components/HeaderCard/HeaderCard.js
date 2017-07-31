@@ -1,16 +1,16 @@
 import React from 'react';
-
-import { updateItemsFilter } from '../../redux/modules/items';
+// import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
+
+import { updateItemsFilter } from '../../redux/modules/items';
 import FilterList from '../../containers/FilterList';
 
 
 import './style.css';
 
 
-// Delete what you don't need
 import logo from '../../images/boomtown-logo.svg';
 
 const style = {
@@ -33,15 +33,19 @@ const HeaderCard = ({ itemFilters }) => (
             </div>
         }
     >
-        <div>
+        <div className="headerbarbuttons">
+            {/* {authenticated && <Link to={`profile/${authenticated}`}> */}
             <RaisedButton label="My Profile" primary={true} style={style} />
+            {/* </Link>} */}
             <RaisedButton label="Logout" secondary={true} style={style} />
         </div>
     </AppBar >
 );
 
 const mapStateFromProps = (state) => ({
-    itemFilters: state.items.itemFilters
+    itemFilters: state.items.itemFilters,
+    // authenticated: state.auth.userProfile,
+
 });
 
 export default connect(mapStateFromProps)(HeaderCard);

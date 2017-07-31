@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
-// import { getProfileItems } from '../../redux/modules/profile';
-// import { getItemsAndUsers } from '../../redux/modules/items';
 import Loader from '../../components/Loader';
 import ProfileCard from '../../components/ProfileCard';
 import Items from '../Items/Items';
@@ -12,17 +10,12 @@ import './styles.css';
 
 class ProfileContainer extends Component {
 
-    // componentDidMount() {
-    // this.props.dispatch(getProfileItems(this.props.match.params.id));
-    // this.props.dispatch(getItemsAndUsers(this.props.match.params.id));
-    // }
-
     render() {
         if (this.props.data.loading) return <Loader />;
         return (
             <div className="profileContainer">
-                <ProfileCard profileData={this.props.profileData} />
-                <Items itemsData={this.props.specificUserItems} />
+                <ProfileCard profileData={this.props.data.user} />
+                <Items itemsData={this.props.data.user.items} />
             </div>
         );
     }
@@ -30,49 +23,39 @@ class ProfileContainer extends Component {
 
 function mapStateToProps(state) {
     return {
-        // loading: state.profile.loading,
-        // myProfile: state.profile.myProfile,
-        // itemsData: state.items.itemsData,
-        // specificUserItems: state.items.specificUserItems
+        loading: state.profile.loading,
+        myProfile: state.profile.myProfile,
+        itemsData: state.items.itemsData,
+        specificUserItems: state.items.specificUserItems
     };
 }
 
 
 const getUsers = gql`
-  query fetchUsers($id: ID!) {
+   query fetchUsers($id: ID!) {
     user(id: $id) {
-      id  
+      id
+      email
       fullname
       bio
-      email
       items {
         id
-        title
-        description
         imageurl
+        itemowner{
+          email
+          fullname
+          id
+          }
+        title
+        created 
         tags {
             title
         }
-        created
-        available
-        borrower {
-            id
-            fullname
-        }
-        itemowner {
-            id
-            email
-            fullname
-        }
+        description
       }
-      borrowed {
-          id
-          title
-          itemowner {
-            id
-            fullname
-          }
-      }
+    borrowed {
+      title
+    }
     }
   }
 `;

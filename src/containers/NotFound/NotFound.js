@@ -1,11 +1,12 @@
 import React from 'react';
 
-import NoLogo from './NotFound';
+import nologo from '../../images/NO_Meme.png';
+
 import './style.css';
 
 const NotFound = () => (
     <div className="NoLogo">
-        <img src={NoLogo} alt="Not Found" />
+        <img src={nologo} alt="Not Found" />
     </div>
 );
 
