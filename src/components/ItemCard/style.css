@@ -21,3 +21,8 @@
     width: calc(33% - 24px);
   }
 } */
+
+.borrowbtn {
+  background: black !important;
+  color: white !important;
+}

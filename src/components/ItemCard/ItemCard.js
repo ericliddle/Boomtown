@@ -5,6 +5,7 @@ import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'm
 import FlatButton from 'material-ui/FlatButton';
 import Gravatar from 'react-gravatar';
 import moment from 'moment';
+import './style.css';
 
 const ItemCard = ({ itemDetails }) => {
     return (
@@ -29,7 +30,7 @@ const ItemCard = ({ itemDetails }) => {
                     {itemDetails.description}
                 </CardText>
                 <CardActions>
-                    <FlatButton label="Borrow" />
+                    <FlatButton label="Borrow" className="borrowbtn"/>
                 </CardActions>
             </Card>
         </li>

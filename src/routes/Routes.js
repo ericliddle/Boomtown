@@ -19,7 +19,7 @@ const Routes = () => (
         <PrivateRoute exact path="/" component={Items} />
         <PrivateRoute path="/profile/:id" component={Profile} />
         <Route path="/share" component={Share} />
-        <PrivateRoute path="/notfound" component={NotFound} />
+        <Route path="/notfound" component={NotFound} />
         {/* TODO: Change register route to privateroute */}
         <Route path="/register" component={Register} />
         {/* <PrivateRoute path="/register" component={Register} /> */}
